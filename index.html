@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrés Trejos | Científico de Datos & Ingeniero de Software</title>
+<meta name="description" content="Científico de datos e ingeniero de software en Pereira, Colombia. ML aplicado, automatización con IA y productos de datos en producción.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1017; --panel:#111826; --panel2:#0e1520; --line:#1e2a3a;
+  --text:#dbe4ee; --muted:#8b9bb0; --cyan:#5cc8ff; --amber:#ffc857;
+  --font-d:'Space Grotesk',sans-serif; --font-b:'IBM Plex Sans',sans-serif; --font-m:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.65}
+a{color:var(--cyan);text-decoration:none}
+h1,h2,h3{font-family:var(--font-d);line-height:1.15}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+section{padding:76px 0;border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--font-m);font-size:.8rem;color:var(--amber);letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin:8px 0 34px}
+
+/* ---------- Nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,16,23,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--font-m);font-weight:500;color:var(--text)}
+.logo span{color:var(--cyan)}
+.links{display:flex;gap:26px;font-size:.92rem}
+.links a{color:var(--muted)}
+.links a:hover,.links a:focus{color:var(--text)}
+.cv-btn{border:1px solid var(--cyan);padding:6px 14px;border-radius:6px;font-family:var(--font-m);font-size:.85rem}
+.cv-btn:hover{background:var(--cyan);color:var(--bg)}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:88px 0 84px}
+.hero h1{font-size:clamp(2rem,5vw,3rem);margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero p{color:var(--muted);max-width:46ch}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{font-family:var(--font-m);font-size:.88rem;padding:10px 18px;border-radius:6px;border:1px solid var(--line);color:var(--text);transition:.15s}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#06121c;font-weight:500}
+.btn.primary:hover{filter:brightness(1.1)}
+.loc{font-family:var(--font-m);font-size:.82rem;color:var(--muted);margin-top:22px}
+.loc b{color:var(--amber);font-weight:500}
+
+/* terminal */
+.term{background:var(--panel2);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.term-bar{display:flex;gap:7px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot:nth-child(1){background:#ff5f57}.dot:nth-child(2){background:#febc2e}.dot:nth-child(3){background:#28c840}
+.term-bar span{margin-left:8px;font-family:var(--font-m);font-size:.75rem;color:var(--muted)}
+.term-body{padding:18px 18px 22px;font-family:var(--font-m);font-size:.83rem;min-height:230px;color:#a9c3da}
+.term-body .p{color:var(--cyan)}
+.term-body .ok{color:#41d98d}
+.term-body .k{color:var(--amber)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--cyan);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- Proyectos ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;display:flex;flex-direction:column;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#2d4258}
+.card h3{font-size:1.08rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.92rem;flex:1}
+.fact{font-family:var(--font-m);font-size:.78rem;color:var(--amber);margin:14px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.chip{font-family:var(--font-m);font-size:.72rem;color:var(--cyan);background:rgba(92,200,255,.08);border:1px solid rgba(92,200,255,.25);padding:3px 9px;border-radius:20px}
+.card-btns{display:flex;gap:10px}
+.mini{font-family:var(--font-m);font-size:.8rem;padding:7px 14px;border-radius:6px;border:1px solid var(--line);color:var(--text)}
+.mini:hover{border-color:var(--cyan);color:var(--cyan)}
+.mini.demo{border-color:var(--amber);color:var(--amber)}
+.mini.demo:hover{background:var(--amber);color:#06121c}
+
+/* ---------- Experiencia ---------- */
+.tl{border-left:2px solid var(--line);margin-left:8px;padding-left:30px;display:flex;flex-direction:column;gap:34px}
+.job{position:relative}
+.job::before{content:"";position:absolute;left:-37px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.job h3{font-size:1.05rem}
+.job .meta{font-family:var(--font-m);font-size:.8rem;color:var(--amber);margin:4px 0 8px}
+.job p{color:var(--muted);font-size:.93rem;max-width:70ch}
+
+/* ---------- Habilidades / Educación ---------- */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.skill-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
+.skill-box h3{font-size:.95rem;color:var(--cyan);margin-bottom:14px;font-family:var(--font-m);font-weight:500}
+.edu{color:var(--muted);font-size:.95rem;max-width:70ch}
+.edu b{color:var(--text)}
+
+/* ---------- Contacto / footer ---------- */
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 26px}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-family:var(--font-m);font-size:.78rem}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .cursor{animation:none}
+  html{scroll-behavior:auto}
+}
+@media (max-width:840px){
+  .hero{grid-template-columns:1fr;padding-top:56px}
+  .links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navrow">
+  <div class="logo">andres<span>@</span>trejos:<span>~</span>$</div>
+  <div class="links">
+    <a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a>
+    <a href="#habilidades">Habilidades</a><a href="#contacto">Contacto</a>
+  </div>
+  <a class="cv-btn" href="assets/cv.pdf" download>Descargar CV</a>
+</div></nav>
+
+<!-- ================= HERO ================= -->
+<header class="wrap hero">
+  <div>
+    <span class="eyebrow">Data Science · Machine Learning · Automatización con IA</span>
+    <h1>Convierto datos en <em>decisiones</em> y procesos en <em>software que trabaja solo</em>.</h1>
+    <p>Soy Andrés Trejos, científico de datos e ingeniero de software. Construyo modelos de ML y sistemas de automatización que llegan a producción: no notebooks sueltos, sino productos que un equipo de negocio puede usar hoy.</p>
+    <div class="hero-btns">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="https://github.com/AndresTrejosdev" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/andrestrejosdev" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="loc">📍 Pereira, Colombia · <b>disponible</b> para roles de datos e ingeniería</div>
+  </div>
+  <div class="term" aria-hidden="true">
+    <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>pipeline.py — python 3.12</span></div>
+    <pre class="term-body" id="term"></pre>
+  </div>
+</header>
+
+<!-- ================= PROYECTOS ================= -->
+<section id="proyectos"><div class="wrap">
+  <span class="eyebrow">Showroom</span>
+  <h2>5 proyectos, 5 stacks, todos en producción</h2>
+  <div class="grid">
+
+    <div class="card reveal">
+      <h3>⚙️ Fleet Health Monitor — Mantenimiento Predictivo</h3>
+      <p>Red LSTM que predice la vida útil remanente (RUL) de maquinaria industrial sobre el dataset NASA C-MAPSS, con dashboard de monitoreo de flota.</p>
+      <div class="fact">RUL clipping + selección de sensores → RMSE reducido a ~la mitad del baseline</div>
+      <div class="chips"><span class="chip">TensorFlow/Keras</span><span class="chip">LSTM</span><span class="chip">Series temporales</span><span class="chip">Streamlit</span></div>
+      <div class="card-btns">
+        <a class="mini demo" href="https://predictive-maintenance.streamlit.app" target="_blank" rel="noopener">Demo en vivo</a>
+        <a class="mini" href="https://github.com/AndresTrejosdev/predictive-maintenance-rul" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>🏛️ CFPB Complaint Router — NLP</h3>
+      <p>Clasificador que enruta quejas financieras reales (API pública del CFPB, EE.UU.) al departamento correcto, con clasificación en vivo y panel de auditoría de errores.</p>
+      <div class="fact">TF-IDF + regresión logística · umbral human-in-the-loop</div>
+      <div class="chips"><span class="chip">scikit-learn</span><span class="chip">NLP</span><span class="chip">API REST</span><span class="chip">Streamlit</span></div>
+      <div class="card-btns">
+        <a class="mini demo" href="https://cfpb-complaints.streamlit.app" target="_blank" rel="noopener">Demo en vivo</a>
+        <a class="mini" href="https://github.com/AndresTrejosdev/cfpb-complaint-classifier" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>🛡️ Retention Priority System — Churn + SHAP</h3>
+      <p>XGBoost que prioriza clientes por riesgo de fuga y explica con SHAP los motivos individuales de cada uno: del modelo a la lista de "a quién llamar primero".</p>
+      <div class="fact">ROC-AUC sobre clases desbalanceadas · explicabilidad global e individual</div>
+      <div class="chips"><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">ML tabular</span><span class="chip">Streamlit</span></div>
+      <div class="card-btns">
+        <a class="mini demo" href="https://churn-retention.streamlit.app" target="_blank" rel="noopener">Demo en vivo</a>
+        <a class="mini" href="https://github.com/AndresTrejosdev/churn-retention-system" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>📄 Document Ops Copilot — RAG + LLM</h3>
+      <p>Copiloto que responde preguntas sobre PDFs citando los fragmentos fuente (anti-alucinación) y extrae tareas y riesgos a CSV con salida JSON validada.</p>
+      <div class="fact">Pipeline RAG explícito sin frameworks · Llama 3.3 70B vía Groq</div>
+      <div class="chips"><span class="chip">RAG</span><span class="chip">LLM</span><span class="chip">TF-IDF</span><span class="chip">pypdf</span></div>
+      <div class="card-btns">
+        <a class="mini demo" href="https://document-ops.streamlit.app" target="_blank" rel="noopener">Demo en vivo</a>
+        <a class="mini" href="https://github.com/AndresTrejosdev/document-ops-copilot" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>🎯 Customer Segmentation AI — RFM + K-Means</h3>
+      <p>Segmentación de clientes desde datos transaccionales (COP) con etiquetado automático de negocio, y un LLM que genera la estrategia de activación de cada segmento.</p>
+      <div class="fact">k validado con silhouette · arquitectura desacoplada en 3 capas</div>
+      <div class="chips"><span class="chip">K-Means</span><span class="chip">RFM</span><span class="chip">Plotly</span><span class="chip">Groq API</span></div>
+      <div class="card-btns">
+        <a class="mini demo" href="https://customer-segmentation-ai.streamlit.app" target="_blank" rel="noopener">Demo en vivo</a>
+        <a class="mini" href="https://github.com/AndresTrejosdev/customer-segmentation-ai" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>🤖 "Inge" — Chatbot RAG por WhatsApp (investigación)</h3>
+      <p>Asistente de gestión de proyectos para una PYME de ingeniería: chatbot RAG por WhatsApp con alertas de plazos y panel web, desarrollado en el Programa Delfín 2026 (Universidad de Guadalajara).</p>
+      <div class="fact">n8n · PostgreSQL · Evolution API · cumplimiento Ley 1581</div>
+      <div class="chips"><span class="chip">n8n</span><span class="chip">RAG</span><span class="chip">Node.js</span><span class="chip">WhatsApp</span></div>
+      <div class="card-btns">
+        <a class="mini" href="https://github.com/AndresTrejosdev/ingeap-mvp" target="_blank" rel="noopener">Código</a>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ================= EXPERIENCIA ================= -->
+<section id="experiencia"><div class="wrap">
+  <span class="eyebrow">Trayectoria</span>
+  <h2>Experiencia</h2>
+  <div class="tl">
+    <div class="job reveal">
+      <h3>Desarrollador Backend — Finova SAS</h3>
+      <div class="meta">Next.js · React · Node.js</div>
+      <p>Desarrollo de funcionalidades backend para producto financiero en producción, integrando lógica de negocio con interfaces modernas en React/Next.js.</p>
+    </div>
+    <div class="job reveal">
+      <h3>Desarrollador Frontend — Softlabco</h3>
+      <div class="meta">React · Herramientas con IA</div>
+      <p>Construcción de interfaces para herramientas de retención estudiantil basadas en IA, llevando modelos de datos a pantallas que usan coordinadores académicos reales.</p>
+    </div>
+    <div class="job reveal">
+      <h3>Desarrollador Fullstack — Comfamiliar Risaralda</h3>
+      <div class="meta">Laravel · Angular · MySQL</div>
+      <p>Desarrollo del sistema de citas médicas: modelado de datos, lógica de agendamiento y frontend, en una de las cajas de compensación más grandes del Eje Cafetero.</p>
+    </div>
+    <div class="job reveal">
+      <h3>Investigador — Programa Delfín 2026 · UdeG (México)</h3>
+      <div class="meta">IA aplicada a PYMES · Semillero SIA (CIAF)</div>
+      <p>Estancia de investigación en adopción de IA para PYMES: diseño y construcción del prototipo "Inge" para Ingeap SAS, revisión de literatura en 6 ejes temáticos y diagnóstico empresarial junto a la Cámara de Comercio de Dosquebradas. En el semillero SIA: proyecto SmartWheelers (scooter solar, 2.º lugar E-Riders 2025; ponencias en RREDSI y EXPOTECH).</p>
+    </div>
+    <div class="job reveal">
+      <h3>Soporte TI y Docencia — I.E. La Marina</h3>
+      <div class="meta">Infraestructura · Formación</div>
+      <p>Administración de infraestructura tecnológica escolar y acompañamiento en formación digital.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= HABILIDADES ================= -->
+<section id="habilidades"><div class="wrap">
+  <span class="eyebrow">Toolkit</span>
+  <h2>Habilidades</h2>
+  <div class="skills">
+    <div class="skill-box reveal"><h3># ciencia_de_datos</h3>
+      <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">SQL</span></div>
+    </div>
+    <div class="skill-box reveal"><h3># ia_generativa</h3>
+      <div class="chips"><span class="chip">RAG</span><span class="chip">LLM APIs</span><span class="chip">Prompt engineering</span><span class="chip">n8n</span><span class="chip">Automatización</span></div>
+    </div>
+    <div class="skill-box reveal"><h3># ingenieria_de_software</h3>
+      <div class="chips"><span class="chip">TypeScript</span><span class="chip">React / Next.js</span><span class="chip">Node.js</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Git</span><span class="chip">PostgreSQL</span></div>
+    </div>
+  </div>
+  <p class="edu" style="margin-top:34px"><b>Educación:</b> Ingeniería de Software — CIAF, Pereira (grado: octubre 2026) · Tecnólogo en Sistemas Informáticos. Inglés técnico en certificación (APTIS).</p>
+</div></section>
+
+<!-- ================= CONTACTO ================= -->
+<section id="contacto"><div class="wrap contact">
+  <span class="eyebrow">¿Hablamos?</span>
+  <h2>Busco mi próximo reto en datos</h2>
+  <p>Si necesitas a alguien que entienda tanto el modelo como el software que lo rodea, escríbeme. Respondo personalmente.</p>
+  <div class="hero-btns" style="justify-content:center">
+    <a class="btn primary" href="mailto:andrestrejoszapata@gmail.com">andrestrejoszapata@gmail.com</a>
+    <a class="btn" href="https://github.com/AndresTrejosdev" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/andrestrejosdev" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+
+<footer>© 2026 Yulian Andrés Trejos Zapata · hecho a mano en Pereira 🇨🇴 · sin frameworks, como debe ser</footer>
+
+<script>
+/* Terminal del héroe */
+const lines=[
+  ['<span class="p">&gt;&gt;&gt;</span> perfil.load(<span class="k">"andres_trejos"</span>)',60],
+  ['<span class="ok">✓</span> rol: Data Scientist · Software Engineer',30],
+  ['<span class="p">&gt;&gt;&gt;</span> perfil.stack()',60],
+  ['[<span class="k">"python"</span>, <span class="k">"ml"</span>, <span class="k">"rag"</span>, <span class="k">"sql"</span>, <span class="k">"n8n"</span>, <span class="k">"react"</span>]',25],
+  ['<span class="p">&gt;&gt;&gt;</span> perfil.proyectos(en_produccion=<span class="k">True</span>)',60],
+  ['<span class="ok">✓</span> 5 demos en vivo desplegadas',30],
+  ['<span class="p">&gt;&gt;&gt;</span> perfil.contratar()',60],
+  ['<span class="ok">→</span> agendando entrevista...',35],
+];
+const term=document.getElementById('term');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduced){term.innerHTML=lines.map(l=>l[0]).join('\n');}
+else{
+  let li=0;
+  function typeLine(){
+    if(li>=lines.length){term.innerHTML+='<span class="p">&gt;&gt;&gt;</span> <span class="cursor"></span>';return;}
+    const [html,speed]=lines[li];
+    const tmp=document.createElement('div');tmp.innerHTML=html;
+    const plain=tmp.textContent;let i=0;
+    const row=document.createElement('div');term.appendChild(row);
+    const t=setInterval(()=>{
+      i++;row.textContent=plain.slice(0,i);
+      if(i>=plain.length){clearInterval(t);row.innerHTML=html;li++;setTimeout(typeLine,260);}
+    },speed*0.5);
+  }
+  setTimeout(typeLine,400);
+}
+/* Reveal scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
